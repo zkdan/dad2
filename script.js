@@ -13,6 +13,7 @@ function clearAnswer() {
   	headline.empty();
   	image.empty();
   	info.empty();
+    iframe.hide();
 };
 
 //listen for selection from list
@@ -28,11 +29,16 @@ $('select').change(function () {
   	});
 });
 
+function showReply(e){
+  e.preventDefault();
+  $('.reply').show();
+}
+
 //DAD1, get a random purse
 function katespadeCallback(purses) {
 		$('.dad1').on('click', function(e){
-			e.preventDefault();
-			//pick a random purse
+			showReply(e);
+      //pick a random purse
 			var number = Math.floor(Math.random(0,133)*132+1);
 			//get the purse's picture
 			var pursePicture = purses.results.collection1[number].image.src;
@@ -57,7 +63,7 @@ $.ajax({
 //DAD2 get guardian news
 function guardianCallback(news){
 	$('.dad2').on('click', function(e){
-		e.preventDefault();
+	  showReply(e);	
 		var any = Math.floor(Math.random(0,20)*20+1);
 		//pick the image
 		var guardianImage = news.response.results[any].fields.thumbnail;
@@ -116,12 +122,10 @@ function youtubeCallback(videos){
   var link_id = link.slice(start, end);
 
   $('.dad3').on('click', function(e){
-    e.preventDefault();
-
+    showReply(e); 
     clearAnswer();
-
     //print new answer
-    info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days. ').append("<a href=" + link + ">watch</a>");
+    info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days.');
 
     iframe.show();
     iframe.attr('src', '//www.youtube.com/embed/' + link_id);

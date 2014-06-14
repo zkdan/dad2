@@ -49,6 +49,7 @@ img{
 	height: 500px;
 	width: 55%;
 	float:left;
+  display: none;
 }
 
 .dad{
