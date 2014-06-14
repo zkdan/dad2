@@ -2,6 +2,9 @@ var headline = $('.headline');
 var image = $('img.answerimage');
 var info = $('.info');
 var problem = $('.problem');
+var dad2=$('.dad2');
+var note = $('.note');
+var love = $('.love');
 
 function kimonoCallback(purses) {
 		//ask dad 1, get a random purse
@@ -13,15 +16,16 @@ function kimonoCallback(purses) {
 			//get the purse's picture
 			var pursePicture = purses.results.collection1[number].image.src;
 			var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
+			var pursePrice = purses.results.collection1[number].price;
 			console.log(purses.results.collection1[number].name.text);
 
 			headline.empty();
 			image.empty();
 			info.empty();
-			
+
 			image.attr('src', pursePicture);
-			headline.html(purses.results.collection1[number].price);
-			// info.html('Go get yourself this little ' + itemTitle  + ' ditty. On me.')
+			info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + ' ditty. On me.')
+			love.html('Cheryl said these were very trendy. - Dad')
 		});
 	};
 
@@ -37,22 +41,75 @@ $('select').change(function () {
 	console.log(sectionId);
 
 	function guardianCallback(news){
-		$('.dad2').on('click', function(e){
-			console.log('id:' + sectionId);
-			e.preventDefault();		
-			//pick any story 
 			var any = Math.floor(Math.random(0,20)*20+1);
+
 			//pick the image
-			console.log(news.response.results[any]);
 			var guardianImage = news.response.results[any].fields.thumbnail;
-			//print this new info
+
+			// clear fields
+			function clearAll(){
 			headline.empty();
 			image.empty();
 			info.empty();
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html('The gist of this article is ' + news.response.results[any].fields.trailText + "or something.");
-		});
+		};
+			//if a certain section ID, then a certain message
+			 if (sectionId === 'money'){
+				dad2.on('click', function(e){
+					clearAll();
+					note.html("Sweetheart, there are many ways to be rich. i.e. ");
+					headline.html(news.response.results[any].webTitle);
+					image.attr('src', guardianImage);
+					info.html(news.response.results[any].fields.trailText+'.');
+					love.html("You're rich of spirit! Love, Dad");
+				});
+
+			} else if (sectionId === 'fashion') {
+				dad2.on('click', function(e){
+					clearAll();
+					note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
+					headline.html(news.response.results[any].webTitle);
+					image.attr('src', guardianImage);
+					info.html(news.response.results[any].fields.trailText+'.');
+					love.html('I married your mother out of spite. xoxo, Dad');
+				});
+			} else if (sectionId === 'technology'){
+				dad2.on('click', function(e){
+					clearAll();
+					note.html("We're all cyborgs anyway - why not marry a computer?");
+					headline.html(news.response.results[any].webTitle);
+					image.attr('src', guardianImage);
+					info.html(news.response.results[any].fields.trailText+'.');
+					love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
+				});
+			} else if (sectionId === 'science'){
+				dad2.on('click', function(e){
+					clearAll();
+					note.html("No one knows what they're doing.");
+					headline.html(news.response.results[any].webTitle);
+					image.attr('src', guardianImage);
+					info.html(news.response.results[any].fields.trailText+'.');
+					love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
+				});
+			} else if (sectionId === 'world') {
+				dad2.on('click', function(e){
+					clearAll();
+					note.html("Do you think these people are worried about how they look?");
+					headline.html(news.response.results[any].webTitle);
+					image.attr('src', guardianImage);
+					info.html(news.response.results[any].fields.trailText+'.');
+					love.html('Beauty is an illusion, anyway. Kisses, Dad');
+				});
+			} else if (sectionId === 'travel'){
+				dad2.on('click', function(e){
+					clearAll();
+					note.html("Well, you know your mother. We're having a great time, by the way.");
+					headline.html(news.response.results[any].webTitle);
+					image.attr('src', guardianImage);
+					info.html(news.response.results[any].fields.trailText+'.');
+					love.html('See you soon! love, Dad');
+				});
+			}
+
 	};
 
 	$.ajax({
