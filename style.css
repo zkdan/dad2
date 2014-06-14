@@ -64,7 +64,7 @@ body{
 	border:none;
 	border-bottom:1px dotted black;
 	position: absolute;
-	top:30px;
+	top:55px;
 	left:340px;
 }
 
@@ -103,5 +103,4 @@ iframe{
 }
 
 h2 {
-  padding-top: 20px;
-}
+	text-align: center;}
