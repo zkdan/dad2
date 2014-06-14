@@ -13,23 +13,34 @@
 img{
 	max-width:100%;
 }
+
 body{
 	font-family: 'Futura', sans-serif;
 }
+
 .wrapper{
 	width: 90%;
 	margin: 0 auto;	
 	position: relative;
 }
 
-.logo{
+.logos {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.logo, .logo-plain{
 	margin:0 auto;
-	max-height: 150px;
-	width: 100%;
+	max-height: 170px;
+	width: 33%;
+  display: inline-block;
+}
+
+.note, .love {
+  font-family: 'Permanent Marker', cursive;
 }
 
 .love{
-  font-family: 'Permanent Marker', cursive;
   text-align: right;
 }
 
@@ -57,6 +68,7 @@ body{
 	height: 500px;
 	width: 55%;
   display: none;
+  margin: 0 auto;
 }
 
 .dad{
