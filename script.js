@@ -1,12 +1,13 @@
+//this makes a global variable
 var headline = $('.headline');
 var image = $('img.answerimage');
 var info = $('.info');
 var problem = $('.problem');
+var iframe = $('iframe');
 var note = $('.note');
 var love = $('.love');
 var sectionId;
 var e;
-//this makes a global variable
 
 function clearAnswer() {
   	headline.empty();
@@ -16,43 +17,42 @@ function clearAnswer() {
 
 //listen for selection from list
 $('select').change(function () {
-	e = document.getElementById('problem');
-	sectionId = e.options[e.selectedIndex].value;
-	console.log(sectionId + " is the sectionId");
+  	e = document.getElementById('problem');
+  	sectionId = e.options[e.selectedIndex].value;
+  	console.log(sectionId + " is the sectionId");
 
-	//DAD2, make guardian callback
-	$.ajax({
-	  "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&show-fields=all&section=" + sectionId,
-	  "dataType":"json",
-	  "success": guardianCallback,
-	});
+  	//DAD2, make guardian callback
+  	$.ajax({
+  	  "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&show-fields=all&section=" + sectionId,
+  	  "dataType":"json",
+  	  "success": guardianCallback,
+  	});
 });
 
 //DAD1, get a random purse
-function kimonoCallback(purses) {
-	$('.dad1').on('click', function(e){
-		e.preventDefault();
-		//pick a random purse
-		var number = Math.floor(Math.random(0,133)*132+1);
-		//get the purse's picture
-		var pursePicture = purses.results.collection1[number].image.src;
-		var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
-		var pursePrice = purses.results.collection1[number].price;
-  
-  		clearAnswer();
+function katespadeCallback(purses) {
+		$('.dad1').on('click', function(e){
+			e.preventDefault();
+			//pick a random purse
+			var number = Math.floor(Math.random(0,133)*132+1);
+			//get the purse's picture
+			var pursePicture = purses.results.collection1[number].image.src;
+			var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
+      var pursePrice = purses.results.collection1[number].price;
 
+      clearAnswer();
   		//print new answer
-		image.attr('src', pursePicture);
-		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + ' ditty. On me.')
-		love.html('Cheryl said these were very trendy. - Dad')
-	});
+  		image.attr('src', pursePicture);
+  		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + ' ditty. On me.')
+  		love.html('Cheryl said these were very trendy. - Dad')
+	  });
 };
 
 //DAD1, make the kimono callback
 $.ajax({
-	"url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=kimonoCallback",
-	"crossDomain":true,
-	"dataType":"jsonp"
+		"url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=katespadeCallback",
+		"crossDomain":true,
+		"dataType":"jsonp"
 });
 
 //DAD2 get guardian news
@@ -108,21 +108,26 @@ function guardianCallback(news){
 
 //DAD3 get youtube
 function youtubeCallback(videos){
+  var any = Math.floor(Math.random(0,1)*90+1);
+  var video = videos.results.collection1[any];
+  var artist = video.artist.text;
+  var song = video["song title"].text;
+  var link = video.artist.href;
+
   $('.dad3').on('click', function(e){
     e.preventDefault();
-    //pick a song
-    console.log('song: ');
 
     clearAnswer();
 
     //print new answer
-    //
+    info.html('You should listen to ' + song + ' by ' + artist + '. I\'ve heard it\'s really trending these days. ' + link);
+    iframe.src = link;
   });
 };
 
 //DAD3, make youtube callback
 $.ajax({
-  "url":"" + sectionId,
-  "dataType":"json",
-  "success": youtubeCallback
+  "url":"http://www.kimonolabs.com/api/6ti9otx2?apikey=7f4c88fffa327672ae96daa2b3cfbd90&callback=youtubeCallback",
+   "crossDomain":true,
+   "dataType":"jsonp"
 });
