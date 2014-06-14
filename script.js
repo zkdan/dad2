@@ -32,7 +32,6 @@ $('select').change(function () {
 });
 
 function showReply(e){
-  e.preventDefault();
   $('.reply').show();
 }
 
