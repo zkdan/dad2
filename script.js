@@ -19,7 +19,6 @@ function clearAnswer() {
 $('select').change(function () {
   	e = document.getElementById('problem');
   	sectionId = e.options[e.selectedIndex].value;
-  	console.log(sectionId + " is the sectionId");
 
   	//DAD2, make guardian callback
   	$.ajax({
@@ -120,8 +119,10 @@ function youtubeCallback(videos){
     clearAnswer();
 
     //print new answer
-    info.html('You should listen to ' + song + ' by ' + artist + '. I\'ve heard it\'s really trending these days. ' + link);
-    iframe.src = link;
+    info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days. ').append("<a href=" + link + ">listen</a>");
+
+    iframe.show();
+    iframe.attr('src', link + '&output=embed');
   });
 };
 
