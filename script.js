@@ -2,6 +2,7 @@ var headline = $('.headline');
 var image = $('img.answerimage');
 var info = $('.info');
 var problem = $('.problem');
+var iframe = $('iframe');
 var sectionId;
 var e;
 
@@ -19,7 +20,7 @@ $('select').change(function () {
 });
 
 //DAD1, get a random purse
-function kimonoCallback(purses) {
+function katespadeCallback(purses) {
 		$('.dad1').on('click', function(e){
 			e.preventDefault();
 			//pick a random purse
@@ -39,7 +40,7 @@ function kimonoCallback(purses) {
 
 //DAD1, make the kimono callback
 $.ajax({
-		"url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=kimonoCallback",
+		"url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=katespadeCallback",
 		"crossDomain":true,
 		"dataType":"jsonp"
 });
@@ -72,21 +73,26 @@ $.ajax({
 
 //DAD3 get youtube
 function youtubeCallback(videos){
+  var any = Math.floor(Math.random(0,1)*90+1);
+  var video = videos.results.collection1[any];
+  var artist = video.artist.text;
+  var song = video["song title"].text;
+  var link = video.artist.href;
+
   $('.dad3').on('click', function(e){
     e.preventDefault();
-    //pick a song
-    console.log('song: ');
 
     clearAnswer();
 
     //print new answer
-    //
+    info.html('You should listen to ' + song + ' by ' + artist + '. I\'ve heard it\'s really trending these days. ' + link);
+    iframe.src = link;
   });
 };
 
 //DAD3, make youtube callback
 $.ajax({
-  "url":"" + sectionId,
-  "dataType":"json",
-  "success": youtubeCallback
+  "url":"http://www.kimonolabs.com/api/6ti9otx2?apikey=7f4c88fffa327672ae96daa2b3cfbd90&callback=youtubeCallback",
+   "crossDomain":true,
+   "dataType":"jsonp"
 });
