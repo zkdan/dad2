@@ -13,6 +13,7 @@
 img{
 	max-width:100%;
 }
+
 .wrapper{
 	width: 90%;
 	margin: 0 auto;	
@@ -26,12 +27,16 @@ input{
 	max-height: 150px;
 	width: 100%;
 }
+
 .love{
 	background-color: pink;
+  font-family: 'Permanent Marker', cursive;
 }
+
 .query{
 	background-color: yellow;
 }
+
 #problem{
 
 }
