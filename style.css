@@ -13,7 +13,9 @@
 img{
 	max-width:100%;
 }
-
+body{
+	font-family: 'Futura', sans-serif;
+}
 .wrapper{
 	width: 90%;
 	margin: 0 auto;	
@@ -32,16 +34,27 @@ img{
 }
 
 .query{
-	background-color: yellow;
+	position: relative;
+}
+
+.dads h2{
+	
 }
 
 #problem{
-	font-size: 1.5em;
+	outline:none;
+	border-radius:none;
+	border:none;
+	border-bottom:1px dotted black;
+	position: absolute;
+	top:0;
+	left:270px;
 }
 
 #problem:focus{
 	outline:none;
-	border:red;
+	border-radius:none;
+	border-bottom:1px solid black ;
 }
 
 .reply{
