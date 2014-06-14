@@ -112,17 +112,19 @@ function youtubeCallback(videos){
   var artist = video.artist.text;
   var song = video["song title"].text;
   var link = video.artist.href;
-
+  var start = link.search("v=") + 2;
+  var end = link.search("&list");
+  var link_id = link.slice(start, end);
   $('.dad3').on('click', function(e){
     e.preventDefault();
 
     clearAnswer();
 
     //print new answer
-    info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days. ').append("<a href=" + link + ">listen</a>");
+    info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days. ').append("<a href=" + link + ">watch</a>");
 
     iframe.show();
-    iframe.attr('src', link + '&output=embed');
+    iframe.attr('src', '//www.youtube.com/embed/' + link_id);
   });
 };
 
