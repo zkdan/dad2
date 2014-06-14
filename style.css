@@ -31,7 +31,7 @@ body{
 
 .logo, .logo-plain{
 	margin:0 auto;
-	max-height: 170px;
+	max-height: 200px;
 	width: 33%;
   display: inline-block;
 }
@@ -46,7 +46,16 @@ body{
 }
 
 .query{
-	position: relative;
+	position: absolute;
+  width: 33%;
+  display: inline-block;
+  top: 115px;
+}
+
+.query p{
+  margin-top: -3px;
+  line-height: 1.5;
+  font-size: 30px;
 }
 
 #problem{
@@ -55,8 +64,12 @@ body{
 	border:none;
 	border-bottom:1px dotted black;
 	position: absolute;
-	top:0;
-	left:270px;
+	top:30px;
+	left:340px;
+}
+
+.select-options{
+  font-size: 30px;
 }
 
 #problem:focus{
@@ -87,4 +100,8 @@ body{
 
 iframe{
   display: none;
+}
+
+h2 {
+  padding-top: 20px;
 }
