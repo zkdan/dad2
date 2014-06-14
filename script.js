@@ -79,7 +79,7 @@ function guardianCallback(news){
 
 		clearResponse();
 		if (sectionId === 'money'){
-			note.html("Sweetheart, there are many ways to be rich. id est: ");
+			note.html("Sweetheart, there are many ways to be rich.");
       showImageInfo();
 			love.html("You're rich of spirit! Love, Dad");
 		} else if (sectionId === 'fashion'){

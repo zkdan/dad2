@@ -38,6 +38,7 @@ body{
 
 .note, .love {
   font-family: 'Permanent Marker', cursive;
+  font-size: 1.3em;
 }
 
 .love{
@@ -71,10 +72,17 @@ body{
   margin: 0 auto;
 }
 
+.name{
+	color:#3fd9ff;
+	background-color: #000;
+	padding: 1px 4px;
+	border-radius:3px;
+}
+
 .dad{
 	display:inline-block;
-	width: 30%;
 	margin: 1%;
+	width: 30%;
 }
 
 iframe{
