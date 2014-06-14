@@ -3,35 +3,7 @@ var image = $('img.answerimage');
 var info = $('.info');
 var problem = $('.problem');
 
-$('select').change(function () {
-	var e = document.getElementById('problem');
-	var sectionId = e.options[e.selectedIndex].value;
-	console.log(sectionId);
-
-	function guardianCallback(news){
-		$('.dad2').on('click', function(e){
-			console.log(sectionId);
-			e.preventDefault();		
-			//pick any story 
-			var any = Math.floor(Math.random(0,20)*20+1);
-			//pick the image
-			var guardianImage = news.response.results[any].fields.thumbnail;
-			console.log(news.response.results[any]);
-
-			//print this new info
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html('The gist of this article is ' + news.response.results[any].fields.trailText + "or something.");
-		});
-	};
-
-	$.ajax({
-	    "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&section=" + sectionId + "&show-fields=all",
-	    "dataType":"json",
-	    "success": guardianCallback
-	});
-
-	function kimonoCallback(purses) {
+function kimonoCallback(purses) {
 		//ask dad 1, get a random purse
 		$('.dad1').on('click', function(e){
 			e.preventDefault();
@@ -55,7 +27,35 @@ $('select').change(function () {
 		"dataType":"jsonp"
 		});
 
+$('select').change(function () {
+	var e = document.getElementById('problem');
+	var sectionId = e.options[e.selectedIndex].value;
+	console.log(sectionId);
 
+	function guardianCallback(news){
+		$('.dad2').on('click', function(e){
+			console.log('id:' + sectionId);
+			e.preventDefault();		
+			//pick any story 
+			var any = Math.floor(Math.random(0,20)*20+1);
+			//pick the image
+			var guardianImage = news.response.results[any].fields.thumbnail;
+			//print this new info
+			headline.html(news.response.results[any].webTitle);
+			image.attr('src', guardianImage);
+			info.html('The gist of this article is ' + news.response.results[any].fields.trailText + "or something.");
+		});
+	};
+
+	$.ajax({
+	    "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&section=" + sectionId + "&show-fields=all",
+	    "dataType":"json",
+	    "success": guardianCallback
+	});
+
+
+
+//dad2 on click return API from vimeo call with keyword concatenated
 
 $('.dad3').on('click', function(){
 	// dadApp.vimeoCallback();
@@ -64,9 +64,6 @@ $('.dad3').on('click', function(){
 
 }); // on change brackets
 
-//dad2 on click return API from vimeo call with keyword concatenated
-
-//dad3 on click return API from call with keyword concatenated
 
 
 
