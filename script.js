@@ -60,7 +60,6 @@ function guardianCallback(news){
 		e.preventDefault();
 		var any = Math.floor(Math.random(0,20)*20+1);
 		//pick the image
-		console.log(news);
 		var guardianImage = news.response.results[any].fields.thumbnail;
 		//if a certain section ID, then a certain message
 		clearAnswer();
@@ -115,6 +114,7 @@ function youtubeCallback(videos){
   var start = link.search("v=") + 2;
   var end = link.search("&list");
   var link_id = link.slice(start, end);
+
   $('.dad3').on('click', function(e){
     e.preventDefault();
 
