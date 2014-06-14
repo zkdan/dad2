@@ -50,7 +50,7 @@ function katespadeCallback(purses) {
       clearResponse();
   		//print new answer
   		image.attr('src', pursePicture).show();
-  		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + ' ditty. On me.')
+  		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
   		love.html('Cheryl said these were very trendy. - Dad')
 	  });
 };
@@ -122,7 +122,7 @@ function youtubeCallback(videos){
     showReply(e); 
     clearResponse();
     //print new answer
-    info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days.');
+    info.html('Honey, have you heard of The You Tube? You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days.');
 
     iframe.show();
     iframe.attr('src', '//www.youtube.com/embed/' + link_id);

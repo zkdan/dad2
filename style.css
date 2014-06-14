@@ -29,16 +29,12 @@ body{
 }
 
 .love{
-	background-color: pink;
   font-family: 'Permanent Marker', cursive;
+  text-align: right;
 }
 
 .query{
 	position: relative;
-}
-
-.dads h2{
-	
 }
 
 #problem{
@@ -58,10 +54,8 @@ body{
 }
 
 .reply{
-	background-color: red;
 	height: 500px;
 	width: 55%;
-	float:left;
   display: none;
 }
 
