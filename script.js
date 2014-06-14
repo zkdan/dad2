@@ -32,6 +32,7 @@ $('select').change(function () {
 });
 
 function showReply(e){
+  $('h2').hide();
   $('.reply').show();
 }
 
