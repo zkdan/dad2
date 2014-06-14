@@ -15,9 +15,13 @@ function kimonoCallback(purses) {
 			var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
 			console.log(purses.results.collection1[number].name.text);
 
+			headline.empty();
+			image.empty();
+			info.empty();
+			
 			image.attr('src', pursePicture);
 			headline.html(purses.results.collection1[number].price);
-			info.html('Go get yourself this little ' + itemTitle  + ' ditty. On me.')
+			// info.html('Go get yourself this little ' + itemTitle  + ' ditty. On me.')
 		});
 	};
 
@@ -39,8 +43,12 @@ $('select').change(function () {
 			//pick any story 
 			var any = Math.floor(Math.random(0,20)*20+1);
 			//pick the image
+			console.log(news.response.results[any]);
 			var guardianImage = news.response.results[any].fields.thumbnail;
 			//print this new info
+			headline.empty();
+			image.empty();
+			info.empty();
 			headline.html(news.response.results[any].webTitle);
 			image.attr('src', guardianImage);
 			info.html('The gist of this article is ' + news.response.results[any].fields.trailText + "or something.");
@@ -48,7 +56,7 @@ $('select').change(function () {
 	};
 
 	$.ajax({
-	    "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&section=" + sectionId + "&show-fields=all",
+	    "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&show-fields=all&section=" + sectionId,
 	    "dataType":"json",
 	    "success": guardianCallback
 	});
