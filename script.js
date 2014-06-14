@@ -9,9 +9,11 @@ var love = $('.love');
 var sectionId;
 var e;
 
-function clearAnswer() {
+function clearResponse() {
+    note.empty();
+    love.empty();
   	headline.empty();
-  	image.empty();
+  	image.hide();
   	info.empty();
     iframe.hide();
 };
@@ -45,9 +47,9 @@ function katespadeCallback(purses) {
 			var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
       var pursePrice = purses.results.collection1[number].price;
 
-      clearAnswer();
+      clearResponse();
   		//print new answer
-  		image.attr('src', pursePicture);
+  		image.attr('src', pursePicture).show();
   		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + ' ditty. On me.')
   		love.html('Cheryl said these were very trendy. - Dad')
 	  });
@@ -68,43 +70,38 @@ function guardianCallback(news){
 		//pick the image
 		var guardianImage = news.response.results[any].fields.thumbnail;
 		//if a certain section ID, then a certain message
-		clearAnswer();
+
+    function showImageInfo(){
+			headline.html(news.response.results[any].webTitle);
+			image.attr('src', guardianImage).show();
+			info.html(news.response.results[any].fields.trailText+'.');
+    }
+
+		clearResponse();
 		if (sectionId === 'money'){
 			note.html("Sweetheart, there are many ways to be rich. i.e. ");
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html(news.response.results[any].fields.trailText+'.');
+      showImageInfo();
 			love.html("You're rich of spirit! Love, Dad");
 		} else if (sectionId === 'fashion'){
 			note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html(news.response.results[any].fields.trailText+'.');
-			love.html('I married your mother out of spite. xoxo, Dad');
+			showImageInfo();
+      love.html('I married your mother out of spite. xoxo, Dad');
 		} else if (sectionId === 'technology'){
 			note.html("We're all cyborgs anyway - why not marry a computer?");
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html(news.response.results[any].fields.trailText+'.');
-			love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
+			showImageInfo();
+      love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
 		} else if (sectionId === 'science'){
 			note.html("No one knows what they're doing.");
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html(news.response.results[any].fields.trailText+'.');
-			love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
+			showImageInfo();
+      love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
 		} else if (sectionId === 'world') {
 			note.html("Do you think these people are worried about how they look?");
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html(news.response.results[any].fields.trailText+'.');
-			love.html('Beauty is an illusion, anyway. Kisses, Dad');
+			showImageInfo();
+      love.html('Beauty is an illusion, anyway. Kisses, Dad');
 		} else if (sectionId === 'travel'){
 			note.html("Well, you know your mother. We're having a great time, by the way.");
-			headline.html(news.response.results[any].webTitle);
-			image.attr('src', guardianImage);
-			info.html(news.response.results[any].fields.trailText+'.');
-			love.html('See you soon! love, Dad');
+			showImageInfo();
+      love.html('See you soon! love, Dad');
 		};
 	});
 };
@@ -123,7 +120,7 @@ function youtubeCallback(videos){
 
   $('.dad3').on('click', function(e){
     showReply(e); 
-    clearAnswer();
+    clearResponse();
     //print new answer
     info.html('You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days.');
 
