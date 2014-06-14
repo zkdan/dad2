@@ -1,5 +1,25 @@
+.clearfix:after {
+   content: " ";
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
 img{
 	max-width:100%;
+}
+.wrapper{
+	margin: 0 auto;	
+	position: relative;
+}
+
+.logo{
+	margin:0 auto;
 }
 .love{
 	background-color: pink;
@@ -8,10 +28,15 @@ img{
 
 .reply{
 	background-color: red;
+	height: 500px;
+	width: 55%;
+	float:left;
 }
 
 .dad{
 	display:inline-block;
+	width: 30%;
+	margin: 1%;
 }
 
 iframe{
