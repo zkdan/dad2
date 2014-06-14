@@ -14,17 +14,25 @@ img{
 	max-width:100%;
 }
 .wrapper{
+	width: 90%;
 	margin: 0 auto;	
 	position: relative;
 }
 
 .logo{
 	margin:0 auto;
+	max-height: 150px;
+	width: 100%;
 }
 .love{
 	background-color: pink;
 }
+.query{
+	background-color: yellow;
+}
+#problem{
 
+}
 
 .reply{
 	background-color: red;
