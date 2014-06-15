@@ -55,13 +55,14 @@ function katespadeCallback(purses) {
 		$('.dad1').on('click', function(e){
 			showReply(e);
       //pick a random purse
-			var number = Math.floor(Math.random(0,133)*132+1);
+			var any = Math.floor(Math.random(0,133)*132+1);
 			//get the purse's picture
-			var pursePicture = purses.results.collection1[number].image.src;
-			var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
-      var pursePrice = purses.results.collection1[number].price;
+			var pursePicture = purses.results.collection1[any].image.src;
+			var itemTitle = purses.results.collection1[any].name.text.toUpperCase();
+      var pursePrice = purses.results.collection1[any].price;
 
       clearResponse();
+
   		//print new answer
   		image.attr('src', pursePicture).show();
   		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
