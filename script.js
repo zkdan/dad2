@@ -63,13 +63,32 @@ function katespadeCallback(purses) {
 
       clearResponse();
 
-  		//print new answer
+      switch (sectionId) {
+        case 'money':
+          info.html('You\'re paying for the neighborhood, honey! And you must fit in. Get this purse. It\'s only ' + pursePrice + ' and what a great name it has!! ' + itemTitle  + '.'); 
+          break;
+        case 'fashion':
+          info.html('I\'ve always told you, guys like a girl who knows how to dress. Treat yourself to a ,' + itemTitle + ' hummm? Love is certainly worth more than this purse, which is just ' + pursePrice + '!!!!'); 
+          break;
+        case 'technology':
+          info.html('Ohh.. I really don\'t know what lesbians like in other lesbians. How about a purse? This one looks... feminine? Masculine? Ahhh I don\'t know! But I love you, honey.' + itemTitle + pursePrice + '.'); 
+          break;
+        case 'science':
+          info.html('I remember when I was an intern at Merryl Lynch as a teenager and feeling the same way. Don\'t worry, you\'ll figure it out. And if you don\'t, well... you will. Here\'s something to hold all of life\'s things:' + itemTitle + pursePrice + '.'); 
+          break;
+        case 'world':
+          info.html('But you\'re so beautiful! HOney you can make ANYTHINg look great. Even this snazzy bag. Why don\'t you buy it? I\'ll transfer you money!' + itemTitle + pursePrice); 
+          break;
+        case 'travel':
+          info.html('Oh, your mother. You know I always saw myself with someone more like Anna Wintour. She would wear a purse like this, and she would SCOFF at the price!!!' + itemTitle + pursePrice); 
+          break;
+      };
+  		
+      //print rest of answer
   		image.attr('src', pursePicture).show();
-  		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
   		love.html('Cheryl said these were very trendy. - Dad')
 	  });
 };
-
 
 //DAD2 get guardian news
 function guardianCallback(news){
