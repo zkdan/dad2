@@ -1,4 +1,4 @@
-//this makes a global variable
+//these are global variables
 var headline = $('.headline');
 var image = $('img.answerimage');
 var info = $('.info');
@@ -23,12 +23,26 @@ $('select').change(function () {
   	e = document.getElementById('problem');
   	sectionId = e.options[e.selectedIndex].value;
 
+    //DAD1, make the kimono callback
+    $.ajax({
+        "url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=katespadeCallback",
+        "crossDomain":true,
+        "dataType":"jsonp"
+    });
+
   	//DAD2, make guardian callback
   	$.ajax({
   	  "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&show-fields=all&section=" + sectionId,
   	  "dataType":"json",
   	  "success": guardianCallback,
   	});
+
+    //DAD3, make youtube callback
+    $.ajax({
+      "url":"http://www.kimonolabs.com/api/6ti9otx2?apikey=7f4c88fffa327672ae96daa2b3cfbd90&callback=youtubeCallback",
+       "crossDomain":true,
+       "dataType":"jsonp"
+    });
 });
 
 function showReply(e){
@@ -41,13 +55,14 @@ function katespadeCallback(purses) {
 		$('.dad1').on('click', function(e){
 			showReply(e);
       //pick a random purse
-			var number = Math.floor(Math.random(0,133)*132+1);
+			var any = Math.floor(Math.random(0,133)*132+1);
 			//get the purse's picture
-			var pursePicture = purses.results.collection1[number].image.src;
-			var itemTitle = purses.results.collection1[number].name.text.toUpperCase();
-      var pursePrice = purses.results.collection1[number].price;
+			var pursePicture = purses.results.collection1[any].image.src;
+			var itemTitle = purses.results.collection1[any].name.text.toUpperCase();
+      var pursePrice = purses.results.collection1[any].price;
 
       clearResponse();
+
   		//print new answer
   		image.attr('src', pursePicture).show();
   		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
@@ -55,12 +70,6 @@ function katespadeCallback(purses) {
 	  });
 };
 
-//DAD1, make the kimono callback
-$.ajax({
-		"url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=katespadeCallback",
-		"crossDomain":true,
-		"dataType":"jsonp"
-});
 
 //DAD2 get guardian news
 function guardianCallback(news){
@@ -74,34 +83,42 @@ function guardianCallback(news){
     function showImageInfo(){
 			headline.html(news.response.results[any].webTitle);
 			image.attr('src', guardianImage).show();
-			info.html(news.response.results[any].fields.trailText+'.');
+			info.html(news.response.results[any].fields.trailText);
     }
 
 		clearResponse();
-		if (sectionId === 'money'){
-			note.html("Sweetheart, there are many ways to be rich.");
-      showImageInfo();
-			love.html("You're rich of spirit! Love, Dad");
-		} else if (sectionId === 'fashion'){
-			note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
-			showImageInfo();
-      love.html('I married your mother out of spite. xoxo, Dad');
-		} else if (sectionId === 'technology'){
-			note.html("We're all cyborgs anyway - why not marry a computer?");
-			showImageInfo();
-      love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
-		} else if (sectionId === 'science'){
-			note.html("No one knows what they're doing.");
-			showImageInfo();
-      love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
-		} else if (sectionId === 'world') {
-			note.html("Do you think these people are worried about how they look?");
-			showImageInfo();
-      love.html('Beauty is an illusion, anyway. Kisses, Dad');
-		} else if (sectionId === 'travel'){
-			note.html("Well, you know your mother. We're having a great time, by the way.");
-			showImageInfo();
-      love.html('See you soon! love, Dad');
+
+    switch (sectionId) {
+      case 'money':
+        note.html("Sweetheart, there are many ways to be rich.");
+        showImageInfo();
+        love.html("You're rich of spirit! Love, Dad");
+        break;
+		  case 'fashion':
+        note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
+        showImageInfo();
+        love.html('I married your mother out of spite. xoxo, Dad');
+        break;
+      case 'technology':
+        note.html("We're all cyborgs anyway - why not marry a computer?");
+        showImageInfo();
+        love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
+        break;
+		  case 'science':
+        note.html("No one knows what they're doing.");
+        showImageInfo();
+        love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
+        break;
+		  case 'world':
+        note.html("Do you think these people are worried about how they look?");
+        showImageInfo();
+        love.html('Beauty is an illusion, anyway. Kisses, Dad');
+        break;
+		  case 'travel':
+        note.html("Well, you know your mother. We're having a great time, by the way.");
+        showImageInfo();
+        love.html('See you soon! love, Dad');
+        break;
 		};
 	});
 };
@@ -129,9 +146,3 @@ function youtubeCallback(videos){
   });
 };
 
-//DAD3, make youtube callback
-$.ajax({
-  "url":"http://www.kimonolabs.com/api/6ti9otx2?apikey=7f4c88fffa327672ae96daa2b3cfbd90&callback=youtubeCallback",
-   "crossDomain":true,
-   "dataType":"jsonp"
-});
