@@ -65,10 +65,10 @@ function katespadeCallback(purses) {
 
       switch (sectionId) {
         case 'money':
-          info.html('You\'re paying for the neighborhood, honey! And you must fit in. Get this purse. It\'s only ' + pursePrice + ' and what a great name it has!! ' + itemTitle  + '.'); 
+          info.html('For the last time, you are not moving to Brooklyn. Take the ' + pursePrice + ' you\'ll save me on rent and get this ' + itemTitle  + ' thing.'); 
           break;
         case 'fashion':
-          info.html('I\'ve always told you, guys like a girl who knows how to dress. Treat yourself to a ,' + itemTitle + ' hummm? Love is certainly worth more than this purse, which is just ' + pursePrice + '!!!!'); 
+          info.html('Men are fickle, kiddo. Mom had a ' + pursePrice + itemTitle + ' like this when I met her and I stayed.'); 
           break;
         case 'technology':
           info.html('Ohh.. I really don\'t know what lesbians like in other lesbians. How about a purse? This one looks... feminine? Masculine? Ahhh I don\'t know! But I love you, honey.' + itemTitle + pursePrice + '.'); 
@@ -159,27 +159,32 @@ function youtubeCallback(videos){
     showReply(e); 
     clearResponse();
 
-    switch (sectionId) {
+switch (sectionId) {
+
       case 'money':
-        note.html("When I was in a band, when could NEVER make our money! Instead we listened to songs like " + song + " by " + artist + ". In our day, of course.");
+        note.html("My old band wrote this song: " + song + " and fucking " + artist + " got rich. But are they happy? No.");
+        love.html("Money's for sellouts. Ciao, Pops");
         break;
 		  case 'fashion':
-        note.html("Honey, I\'m gonna let you work this one out with a song. Have you heard of The You Tube? " + song + " by " + artist + " seems like it could help you right now...");
+        note.html("When your mother dumped me for the first time, I listened to " + song + " by " + artist + " over and over. Might help.");
+        love.html("Jam out your heartbreak, baby. Adios! Daddy-o");
         break;
       case 'technology':
-        note.html("I too experimented as a young adult. Hey, have you heard of The You Tube? It's a place where artists (and comedians!?) share their work. Maybe listen to " + song + " by " + artist + ". I listened to it before sending it to you!! Hope you like!");
+        note.html("You should write a joke about that! There are a lot of funny lesbian comedians on the YouTube. Here's a link!");
+        love.html("Is it showing up? Text me! Dad");
         break;
-		  case 'science':
-        note.html("Hey, have you heard of The You Tube? It's a place where artists (and comedians!?) share their work. Maybe listen to " + song + " by " + artist + ". I listened to it before sending it to you!! Hope you like! And don\'t worry... it\'ll be fine. Just look at the Beatles!!!");
-        break;
+      case 'science':
+        note.html("Just take the days as they come, sugar. Like " + artist + " in " + song ".");
+        love.html("Sing like no one's watching, my little bluejay.");
+      break;
 		  case 'world':
-        note.html("YOU ARE WAY MORE NEAUTIFUL THAN THE PEOPLE IN THIS MUSIC VIDEO I FOUND ON THE YOU TUBE!! It\'s by " + artist + " and called " + song + ". I love you.");
+        note.html(song + " by " + artist + " celebrates all kinds of female beauty. You're one in a million, honey.");
+        love.html("At least it's not Fat Bottomed Girls! Ha-ha! Sayonara! Dad");
         break;
 		  case 'travel':
-        note.html("Ugh, not now, honey. Have a song." + song + " by " + artist + ".");
-        break;
+        note.html("When your mother and I have a tiff " + song + " by " + artist + " really gets me through.");
+        love.html("Hang loose! dad");
 		};
-
     //print new answer
     iframe.show();
     iframe.attr('src', '//www.youtube.com/embed/' + link_id);
