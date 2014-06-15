@@ -83,6 +83,8 @@ body{
 	width: 55%;
   display: none;
   margin: 0 auto;
+  float: right;
+  /* display: inline-block; */
 }
 
 .name{
@@ -92,10 +94,26 @@ body{
 	border-radius:3px;
 }
 
+.dads{
+  display: inline;
+}
+
 .dad{
 	display:inline-block;
 	margin: 1%;
 	width: 30%;
+}
+
+.dad1{
+
+}
+
+.dad2{
+
+}
+
+.dad3{
+
 }
 
 iframe{

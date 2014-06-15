@@ -9,15 +9,6 @@ var love = $('.love');
 var sectionId;
 var e;
 
-function clearResponse() {
-    note.empty();
-    love.empty();
-  	headline.empty();
-  	image.hide();
-  	info.empty();
-    iframe.hide();
-};
-
 //listen for selection from list
 $('select').change(function () {
   	e = document.getElementById('problem');
@@ -48,12 +39,36 @@ $('select').change(function () {
 function showReply(e){
   $('h2').hide();
   $('.reply').show();
+};
+
+function clearResponse() {
+    note.empty();
+    love.empty();
+  	headline.empty();
+  	image.hide();
+  	info.empty();
+    iframe.hide();
+};
+
+function hideOtherDads(){
+  $('.dad').each(function() {
+    // if the dad clicked, move it to the left
+    // hide the other dads
+      if ($(this).attr('class').indexOf('dad2') === -1) {
+        ;
+      }
+  }); 
+}
+
+function showAllDads(thisDad){
+  // transition all dads back to their original starting point
 }
 
 //DAD1, get a random purse
 function katespadeCallback(purses) {
 		$('.dad1').on('click', function(e){
 			showReply(e);
+      hideOtherDads(this);
       //pick a random purse
 			var any = Math.floor(Math.random(0,133)*132+1);
 			//get the purse's picture
@@ -62,6 +77,7 @@ function katespadeCallback(purses) {
       var pursePrice = purses.results.collection1[any].price;
 
       clearResponse();
+      hideOtherDads(this);
 
   		//print new answer
   		image.attr('src', pursePicture).show();
