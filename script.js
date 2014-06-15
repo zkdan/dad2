@@ -62,7 +62,7 @@ function katespadeCallback(purses) {
       var pursePrice = purses.results.collection1[any].price;
 
       clearResponse();
-
+      console.log(sectionId);
       switch (sectionId) {
         case 'money':
           info.html('For the last time, you are not moving to Brooklyn. Take the ' + pursePrice + ' you\'ll save me on rent and get this ' + itemTitle  + ' thing.'); 
@@ -86,8 +86,6 @@ function katespadeCallback(purses) {
   		
       //print rest of answer
   		image.attr('src', pursePicture).show();
-  		info.html(' - MEMO - ' + '<br>' + ' Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
-  		love.html('Cheryl said these were very trendy. - Dad')
 	  });
 };
 
@@ -174,7 +172,7 @@ switch (sectionId) {
         love.html("Is it showing up? Text me! Dad");
         break;
       case 'science':
-        note.html("Just take the days as they come, sugar. Like " + artist + " in " + song ".");
+        note.html("Just take the days as they come, sugar. Like " + artist + " in " + song + ".");
         love.html("Sing like no one's watching, my little bluejay.");
       break;
 		  case 'world':

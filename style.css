@@ -151,12 +151,11 @@ h2 {
 
 .madeby{
 	text-align: center;
-
 }
 
 .madeby a{
 	color:#000;
-	text-decoration:none;
+	text-decoration: none;
 }
 .madeby a:hover{
 	color:#3fd9ff;	
