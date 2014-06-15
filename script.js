@@ -64,22 +64,22 @@ function katespadeCallback(purses) {
       clearResponse();
 
       switch (sectionId) {
-        case 'rent':
+        case 'money':
           info.html('You\'re paying for the neighborhood, honey! And you must fit in. Get this purse. It\'s only ' + pursePrice + ' and what a great name it has!! ' + itemTitle  + '.'); 
           break;
-        case 'boyfriend':
+        case 'fashion':
           info.html('I\'ve always told you, guys like a girl who knows how to dress. Treat yourself to a ,' + itemTitle + ' hummm? Love is certainly worth more than this purse, which is just ' + pursePrice + '!!!!'); 
           break;
-        case 'girlfriend':
+        case 'technology':
           info.html('Ohh.. I really don\'t know what lesbians like in other lesbians. How about a purse? This one looks... feminine? Masculine? Ahhh I don\'t know! But I love you, honey.' + itemTitle + pursePrice + '.'); 
           break;
-        case 'life':
-          info.html('I remember when I was an intern at Merryl Lynch as a teenager and feeling the same way. Don\'t worry, you\'ll figure it out. And if you don\'t, well... you will. Here\'s something to hold all of life\'s things:' + itemTitle + pursePrice + '.'); 
+        case 'science':
+          info.html('I remember when I was an intern at Merryl Lynch as a teenager and feeling the same way. Don\'t worry, you\'ll figure it out. And if you don\'t, well... you will. Here\'s something to hold all of science\'s things:' + itemTitle + pursePrice + '.'); 
           break;
-        case 'body':
+        case 'world':
           info.html('But you\'re so beautiful! HOney you can make ANYTHINg look great. Even this snazzy bag. Why don\'t you buy it? I\'ll transfer you money!' + itemTitle + pursePrice); 
           break;
-        case 'mom':
+        case 'travel':
           info.html('Oh, your mother. You know I always saw myself with someone more like Anna Wintour. She would wear a purse like this, and she would SCOFF at the price!!!' + itemTitle + pursePrice); 
           break;
       };
@@ -109,32 +109,32 @@ function guardianCallback(news){
 		clearResponse();
 
     switch (sectionId) {
-      case 'rent':
+      case 'money':
         note.html("Sweetheart, there are many ways to be rich.");
         showImageInfo();
         love.html("You're rich of spirit! Love, Dad");
         break;
-		  case 'boyfriend':
+		  case 'fashion':
         note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
         showImageInfo();
         love.html('I married your mother out of spite. xoxo, Dad');
         break;
-      case 'girlfriend':
+      case 'technology':
         note.html("We're all cyborgs anyway - why not marry a computer?");
         showImageInfo();
         love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
         break;
-		  case 'life':
+		  case 'science':
         note.html("No one knows what they're doing.");
         showImageInfo();
         love.html('Sometimes I wish I had been a marine. Oh well! Love you, Dad');
         break;
-		  case 'body':
+		  case 'world':
         note.html("Do you think these people are worried about how they look?");
         showImageInfo();
         love.html('Beauty is an illusion, anyway. Kisses, Dad');
         break;
-		  case 'mom':
+		  case 'travel':
         note.html("Well, you know your mother. We're having a great time, by the way.");
         showImageInfo();
         love.html('See you soon! love, Dad');
@@ -160,22 +160,22 @@ function youtubeCallback(videos){
     clearResponse();
 
     switch (sectionId) {
-      case 'rent':
-        note.html("When I was in a band, when could NEVER make our rent! Instead we listened to songs like " + song + " by " + artist + ". In our day, of course.");
+      case 'money':
+        note.html("When I was in a band, when could NEVER make our money! Instead we listened to songs like " + song + " by " + artist + ". In our day, of course.");
         break;
-		  case 'boyfriend':
+		  case 'fashion':
         note.html("Honey, I\'m gonna let you work this one out with a song. Have you heard of The You Tube? " + song + " by " + artist + " seems like it could help you right now...");
         break;
-      case 'girlfriend':
+      case 'technology':
         note.html("I too experimented as a young adult. Hey, have you heard of The You Tube? It's a place where artists (and comedians!?) share their work. Maybe listen to " + song + " by " + artist + ". I listened to it before sending it to you!! Hope you like!");
         break;
-		  case 'life':
+		  case 'science':
         note.html("Hey, have you heard of The You Tube? It's a place where artists (and comedians!?) share their work. Maybe listen to " + song + " by " + artist + ". I listened to it before sending it to you!! Hope you like! And don\'t worry... it\'ll be fine. Just look at the Beatles!!!");
         break;
-		  case 'body':
+		  case 'world':
         note.html("YOU ARE WAY MORE NEAUTIFUL THAN THE PEOPLE IN THIS MUSIC VIDEO I FOUND ON THE YOU TUBE!! It\'s by " + artist + " and called " + song + ". I love you.");
         break;
-		  case 'mom':
+		  case 'travel':
         note.html("Ugh, not now, honey. Have a song." + song + " by " + artist + ".");
         break;
 		};
