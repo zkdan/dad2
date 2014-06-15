@@ -122,7 +122,7 @@ function youtubeCallback(videos){
     showReply(e); 
     clearResponse();
     //print new answer
-    info.html('Honey, have you heard of The You Tube? You should listen to "' + song + '" by ' + artist + '. I\'ve heard it\'s really trending these days.');
+    note.html("Honey, have you heard of The You Tube? It's very relaxing! I've been listening to "  + song +  " by " + artist + ". I'm a real Casey Kasem! xoxo, Dad");
 
     iframe.show();
     iframe.attr('src', '//www.youtube.com/embed/' + link_id);
