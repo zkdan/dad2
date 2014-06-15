@@ -74,34 +74,42 @@ function guardianCallback(news){
     function showImageInfo(){
 			headline.html(news.response.results[any].webTitle);
 			image.attr('src', guardianImage).show();
-			info.html(news.response.results[any].fields.trailText+'.');
+			info.html(news.response.results[any].fields.trailText);
     }
 
 		clearResponse();
-		if (sectionId === 'money'){
-			note.html("Sweetheart, there are many ways to be rich.");
-      showImageInfo();
-			love.html("You're rich of spirit! Love, Dad");
-		} else if (sectionId === 'fashion'){
-			note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
-			showImageInfo();
-      love.html('I married your mother out of spite. xoxo, Dad');
-		} else if (sectionId === 'technology'){
-			note.html("We're all cyborgs anyway - why not marry a computer?");
-			showImageInfo();
-      love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
-		} else if (sectionId === 'science'){
-			note.html("No one knows what they're doing.");
-			showImageInfo();
-      love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
-		} else if (sectionId === 'world') {
-			note.html("Do you think these people are worried about how they look?");
-			showImageInfo();
-      love.html('Beauty is an illusion, anyway. Kisses, Dad');
-		} else if (sectionId === 'travel'){
-			note.html("Well, you know your mother. We're having a great time, by the way.");
-			showImageInfo();
-      love.html('See you soon! love, Dad');
+
+    switch (sectionId) {
+      case 'money':
+        note.html("Sweetheart, there are many ways to be rich.");
+        showImageInfo();
+        love.html("You're rich of spirit! Love, Dad");
+        break;
+		  case 'fashion':
+        note.html("Human relationships are doomed to failure. Keep trying! I'll send you cash for something pretty.");
+        showImageInfo();
+        love.html('I married your mother out of spite. xoxo, Dad');
+        break;
+      case 'technology':
+        note.html("We're all cyborgs anyway - why not marry a computer?");
+        showImageInfo();
+        love.html('Ha-ha. Just kidding. Marry a human. xoxo, Dad');
+        break;
+		  case 'science':
+        note.html("No one knows what they're doing.");
+        showImageInfo();
+        love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
+        break;
+		  case 'world':
+        note.html("Do you think these people are worried about how they look?");
+        showImageInfo();
+        love.html('Beauty is an illusion, anyway. Kisses, Dad');
+        break;
+		  case 'travel':
+        note.html("Well, you know your mother. We're having a great time, by the way.");
+        showImageInfo();
+        love.html('See you soon! love, Dad');
+        break;
 		};
 	});
 };
