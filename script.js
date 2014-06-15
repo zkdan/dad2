@@ -68,7 +68,7 @@ function katespadeCallback(purses) {
           info.html('For the last time, you are not moving to Brooklyn. Take the ' + pursePrice + ' you\'ll save me on rent and get this ' + itemTitle  + ' thing.'); 
           break;
         case 'fashion':
-          info.html('Men are fickle, kiddo. Mom had a ' + pursePrice + itemTitle + ' like this when I met her and I stayed.'); 
+          info.html('Men are fickle, kiddo. Mom had a ' + pursePrice + ' ' + itemTitle + ' like this when I met her and I stayed.'); 
           break;
         case 'technology':
           info.html('Ohh.. I really don\'t know what lesbians like in other lesbians. How about a purse? This one looks... feminine? Masculine? Ahhh I don\'t know! But I love you, honey.' + itemTitle + pursePrice + '.'); 
@@ -86,6 +86,7 @@ function katespadeCallback(purses) {
   		
       //print rest of answer
   		image.attr('src', pursePicture).show();
+      love.html('- Your father');
 	  });
 };
 
@@ -133,7 +134,7 @@ function guardianCallback(news){
         love.html('Beauty is an illusion, anyway. Kisses, Dad');
         break;
 		  case 'travel':
-        note.html("Well, you know your mother. We're having a great time, by the way.");
+        note.html("Well, you know your mother." + '<br/>' + " We're having a great time, by the way.");
         showImageInfo();
         love.html('See you soon! love, Dad');
         break;
@@ -160,27 +161,27 @@ function youtubeCallback(videos){
 switch (sectionId) {
 
       case 'money':
-        note.html("My old band wrote this song: " + song + " and fucking " + artist + " got rich. But are they happy? No.");
+        info.html("My old band wrote this song: " + song + " and fucking " + artist + " got rich. But is " + artist + " happy? No.");
         love.html("Money's for sellouts. Ciao, Pops");
         break;
 		  case 'fashion':
-        note.html("When your mother dumped me for the first time, I listened to " + song + " by " + artist + " over and over. Might help.");
+        info.html("When your mother dumped me for the first time, I listened to " + song + " by " + artist + " over and over. Might help.");
         love.html("Jam out your heartbreak, baby. Adios! Daddy-o");
         break;
       case 'technology':
-        note.html("You should write a joke about that! There are a lot of funny lesbian comedians on the YouTube. Here's a link!");
+        info.html("You should write a joke about that! There are a lot of funny lesbian comedians on the YouTube. Here's a link! You'll have to copy and paste. www.youtube.com/" + artist + "/" + song);
         love.html("Is it showing up? Text me! Dad");
         break;
       case 'science':
-        note.html("Just take the days as they come, sugar. Like " + artist + " in " + song + ".");
+        info.html("Just take the days as they come, sugar. Like " + artist + " in " + song + ".");
         love.html("Sing like no one's watching, my little bluejay.");
       break;
 		  case 'world':
-        note.html(song + " by " + artist + " celebrates all kinds of female beauty. You're one in a million, honey.");
+        info.html(song + " by " + artist + " celebrates all kinds of female beauty. You're one in a million, honey.");
         love.html("At least it's not Fat Bottomed Girls! Ha-ha! Sayonara! Dad");
         break;
 		  case 'travel':
-        note.html("When your mother and I have a tiff " + song + " by " + artist + " really gets me through.");
+        info.html("When your mother and I have a tiff " + song + " by " + artist + " really gets me through.");
         love.html("Hang loose! dad");
 		};
     //print new answer
