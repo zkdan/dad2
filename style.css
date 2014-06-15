@@ -38,11 +38,31 @@ body{
 
 .note, .love {
   font-family: 'Permanent Marker', cursive;
-  font-size: 1.3em;
+  font-size: 1.9em;
 }
 
 .love{
   text-align: right;
+}
+
+.headline{
+	font-size: 2em;
+}
+
+.info{
+	float:left;
+	width: 48%;
+	margin:1%;
+	border:1px solid;
+	padding:3%;
+}
+.answerimage{
+	float:left;
+	width: 48%;
+	margin:1%;
+}
+.infopair{
+	background-color: yellow;
 }
 
 .query{
@@ -104,4 +124,50 @@ iframe{
 
 h2 {
 	text-align: center;
+}
+
+span.dadsprite1{
+	width: 100%;
+	height: 400px;
+	display: inline-block;
+	background: url(img/CorporateDadSPRITE.svg) no-repeat;
+	background-size:680px 450px;
+}
+span.dadsprite1:hover{
+	background-position: -339.5px 0;
+}
+span.dadsprite2{
+	width: 100%;
+	height: 400px;
+	display: inline-block;
+	background: url(img/AcademicDadSPRITE.svg) no-repeat;
+	background-size:680px 450px;
+}
+span.dadsprite2:hover{
+	background-position: -339.5px 0;
+}
+span.dadsprite3{
+	width: 100%;
+	height: 400px;
+	display: inline-block;
+	background: url(img/CoolDadSPRITE.svg)no-repeat;
+	background-size:680px 450px;
+}
+
+span.dadsprite3:hover{
+	background-position: -339.5px 0;
+}
+
+
+.madeby{
+	text-align: center;
+
+}
+
+.madeby a{
+	color:#000;
+	text-decoration:none;
+}
+.madeby a:hover{
+	color:#3fd9ff;	
 }

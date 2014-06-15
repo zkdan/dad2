@@ -65,7 +65,7 @@ function katespadeCallback(purses) {
 
   		//print new answer
   		image.attr('src', pursePicture).show();
-  		info.html('Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
+  		info.html(' - MEMO - ' + '<br>' + ' Take ' + pursePrice +' from the emergency fund and get yourself this little ' + itemTitle  + '.'); 
   		love.html('Cheryl said these were very trendy. - Dad')
 	  });
 };
@@ -81,7 +81,7 @@ function guardianCallback(news){
 		//if a certain section ID, then a certain message
 
     function showImageInfo(){
-			headline.html(news.response.results[any].webTitle);
+			headline.html(news.response.results[any].webTitle).show();
 			image.attr('src', guardianImage).show();
 			info.html(news.response.results[any].fields.trailText);
     }
@@ -107,7 +107,7 @@ function guardianCallback(news){
 		  case 'science':
         note.html("No one knows what they're doing.");
         showImageInfo();
-        love.html('Sometimes I wish I had been a marine. Oh well! <3 Dad');
+        love.html('Sometimes I wish I had been a marine. Oh well! Love you, Dad');
         break;
 		  case 'world':
         note.html("Do you think these people are worried about how they look?");
