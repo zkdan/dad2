@@ -77,7 +77,7 @@ function katespadeCallback(purses) {
           info.html('I remember when I was an intern at Merryl Lynch as a teenager and feeling the same way. Don\'t worry, you\'ll figure it out. And if you don\'t, well... you will. Here\'s something to hold all of life\'s things:' + itemTitle + pursePrice + '.'); 
           break;
         case 'body':
-          info.html('But you\'re so beautiful! HOney you can make ANYTHINg look great. Even this snazzy bag. Why don\'t you buy it? I\'ll transfer you rent!' + itemTitle + pursePrice); 
+          info.html('But you\'re so beautiful! HOney you can make ANYTHINg look great. Even this snazzy bag. Why don\'t you buy it? I\'ll transfer you money!' + itemTitle + pursePrice); 
           break;
         case 'mom':
           info.html('Oh, your mother. You know I always saw myself with someone more like Anna Wintour. She would wear a purse like this, and she would SCOFF at the price!!!' + itemTitle + pursePrice); 
