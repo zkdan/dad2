@@ -101,7 +101,7 @@ function guardianCallback(news){
 		//if a certain section ID, then a certain message
 
     function showImageInfo(){
-			headline.html(news.response.results[any].webTitle).show();
+			headline.html('"' + news.response.results[any].webTitle + '"').show();
 			image.attr('src', guardianImage).show();
 			info.html(news.response.results[any].fields.trailText);
     }
