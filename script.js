@@ -53,6 +53,7 @@ function showReply(e){
 //DAD1, get a random purse
 function katespadeCallback(purses) {
 		$('.dad1').on('click', function(e){
+      clearResponse();
 			showReply(e);
       //pick a random purse
 			var any = Math.floor(Math.random(0,133)*132+1);
@@ -61,8 +62,6 @@ function katespadeCallback(purses) {
 			var itemTitle = purses.results.collection1[any].name.text.toUpperCase();
       var pursePrice = purses.results.collection1[any].price;
 
-      clearResponse();
-      console.log(sectionId);
       switch (sectionId) {
         case 'money':
           info.html('For the last time, you are not moving to Brooklyn. Take the ' + pursePrice + ' you\'ll save me on rent and get this ' + itemTitle  + ' thing.'); 
@@ -93,6 +92,7 @@ function katespadeCallback(purses) {
 //DAD2 get guardian news
 function guardianCallback(news){
 	$('.dad2').on('click', function(e){
+    clearResponse();
 	  showReply(e);	
 		var any = Math.floor(Math.random(0,20)*20+1);
 		//pick the image
@@ -104,8 +104,6 @@ function guardianCallback(news){
 			image.attr('src', guardianImage).show();
 			info.html(news.response.results[any].fields.trailText);
     }
-
-		clearResponse();
 
     switch (sectionId) {
       case 'money':
@@ -155,14 +153,14 @@ function youtubeCallback(videos){
   var link_id = link.slice(start, end);
 
   $('.dad3').on('click', function(e){
-    showReply(e); 
     clearResponse();
+    showReply(e); 
 
-switch (sectionId) {
+  switch (sectionId) {
 
       case 'money':
-        info.html("My old band wrote this song: " + song + " and fucking " + artist + " got rich. But is " + artist + " happy? No.");
-        love.html("Money's for sellouts. Ciao, Pops");
+        info.html("I learned to barter by trading one of" + artist + "'s albums for a box of granola.");
+        love.html("Try it! Ciao, Pops");
         break;
 		  case 'fashion':
         info.html("When your mother dumped me for the first time, I listened to " + song + " by " + artist + " over and over. Might help.");
@@ -173,8 +171,8 @@ switch (sectionId) {
         love.html("Is it showing up? Text me! Dad");
         break;
       case 'science':
-        info.html("Just take the days as they come, sugar. Like " + artist + " in " + song + ".");
-        love.html("Sing like no one's watching, my little bluejay.");
+        info.html("My old band wrote this song: " + song + " and fucking " + artist + " got rich. But is " + artist + " happy? No.");
+        love.html("Chase your dreams. Ciao, Pops");
       break;
 		  case 'world':
         info.html(song + " by " + artist + " celebrates all kinds of female beauty. You're one in a million, honey.");

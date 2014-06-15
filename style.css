@@ -55,6 +55,7 @@ body{
 	margin:1%;
 	border:1px solid;
 	padding:3%;
+  font-size: 1.3em;
 }
 .answerimage{
 	float:left;
@@ -64,7 +65,6 @@ body{
 	margin:1%;
 }
 .infopair{
-	background-color: yellow;
 }
 
 .query{
