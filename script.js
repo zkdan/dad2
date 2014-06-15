@@ -1,4 +1,4 @@
-//this makes a global variable
+//these are global variables
 var headline = $('.headline');
 var image = $('img.answerimage');
 var info = $('.info');
@@ -23,12 +23,26 @@ $('select').change(function () {
   	e = document.getElementById('problem');
   	sectionId = e.options[e.selectedIndex].value;
 
+    //DAD1, make the kimono callback
+    $.ajax({
+        "url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=katespadeCallback",
+        "crossDomain":true,
+        "dataType":"jsonp"
+    });
+
   	//DAD2, make guardian callback
   	$.ajax({
   	  "url":"http://beta.content.guardianapis.com/search?api-key=ks6ga75baurqmfuq7echzcjp&page-size=20&show-fields=all&section=" + sectionId,
   	  "dataType":"json",
   	  "success": guardianCallback,
   	});
+
+    //DAD3, make youtube callback
+    $.ajax({
+      "url":"http://www.kimonolabs.com/api/6ti9otx2?apikey=7f4c88fffa327672ae96daa2b3cfbd90&callback=youtubeCallback",
+       "crossDomain":true,
+       "dataType":"jsonp"
+    });
 });
 
 function showReply(e){
@@ -55,12 +69,6 @@ function katespadeCallback(purses) {
 	  });
 };
 
-//DAD1, make the kimono callback
-$.ajax({
-		"url":"http://www.kimonolabs.com/api/2zaya4fk?apikey=cbe65feeda5bc52b81c5377c06ed1214&callback=katespadeCallback",
-		"crossDomain":true,
-		"dataType":"jsonp"
-});
 
 //DAD2 get guardian news
 function guardianCallback(news){
@@ -137,9 +145,3 @@ function youtubeCallback(videos){
   });
 };
 
-//DAD3, make youtube callback
-$.ajax({
-  "url":"http://www.kimonolabs.com/api/6ti9otx2?apikey=7f4c88fffa327672ae96daa2b3cfbd90&callback=youtubeCallback",
-   "crossDomain":true,
-   "dataType":"jsonp"
-});
